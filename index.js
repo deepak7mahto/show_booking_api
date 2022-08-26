@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 //Root route
 app.get("/", (req, res) => {
-  return res.json({ status: "Working", process: process.env });
+  return res.json({ status: "Working" });
 });
 
 //Get all locations
