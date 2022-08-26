@@ -10,7 +10,7 @@ const moviesSchema = new Schema(
 		cast_name: { type: String, required: true },
 		language: { type: String, required: true },
 		genre: { type: String, required: true },
-		locations: [{ type: ObjectId, ref: "Location", required: true }],
+		locations: [{ type: ObjectId, ref: "Locations", required: true }],
 	},
 	{ timestamps: true }
 );
