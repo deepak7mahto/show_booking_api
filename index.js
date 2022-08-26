@@ -101,39 +101,13 @@ const dbUser = process.env.DB_USER;
 
 const uri = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.edfsh1y.mongodb.net/?retryWrites=true&w=majority`;
 
-// console.log({ uri });
-
 mongoose.connect(uri, (error) => {
   if (error) {
     console.log(error);
   } else {
-    addLocations();
-
     console.log("DB Connected, Starting Server");
     app.listen(port, () => {
       console.log("Api started at http://localhost:" + port);
     });
   }
 });
-
-async function addLocations() {
-  try {
-    const locations = await Locations.find({});
-    console.log("Number of Locations Added ", locations.length);
-
-    const movies = await Movies.find({});
-    console.log("Number of Movies Added ", movies.length);
-
-    // await Locations.deleteMany({});
-
-    // let newLoc = new Locations({
-    // 	timings: ["11:00am - 2:00pm", "1:00pm - 4:00pm", "5:00pm - 8pm"],
-    // 	location: "Pacific Mall , Subhash Nagar",
-    // 	price: 350,
-    // 	theatre_name: "PVR Pacific",
-    // });
-    // newLoc.save();
-  } catch (error) {
-    console.log({ error });
-  }
-}
