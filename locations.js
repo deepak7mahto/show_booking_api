@@ -1,9 +1,5 @@
 const { Schema, default: mongoose } = require("mongoose");
 
-const {
-	Types: { ObjectId },
-} = Schema;
-1;
 const locationsSchema = new Schema(
 	{
 		theatre_name: String,
